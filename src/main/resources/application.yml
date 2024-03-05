@@ -1,2 +1,8 @@
 server:
   port: 12961
+
+integration:
+  product:
+    root-url: http://localhost:12968
+    connectTimeout: 5s
+    readTimeout: 10s
