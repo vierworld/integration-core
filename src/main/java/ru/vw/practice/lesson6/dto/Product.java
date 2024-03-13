@@ -1,6 +1,7 @@
 package ru.vw.practice.lesson6.dto;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Product {
   private Long productId;
@@ -8,6 +9,8 @@ public class Product {
   private String billNumber;
   private BigDecimal balance;
   private ProductType productType;
+
+  public Product() {}
 
   public Product(Long productId,
                  Long userId,
@@ -119,6 +122,19 @@ public class Product {
 
     public int getCode() {
       return code;
+    }
+    public static ProductType getByCode(Integer code) {
+      if (Objects.isNull(code)) {
+        return null;
+      }
+
+      for (ProductType productType: ProductType.values()) {
+        if (Objects.equals(productType.getCode(), code)) {
+          return productType;
+        }
+      }
+
+      return null;
     }
   }
 }
