@@ -6,10 +6,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import ru.vw.practice.lesson6.dto.ErrorResponse;
 import ru.vw.practice.lesson6.exception.RestException;
 
+import java.time.OffsetDateTime;
+
 @ControllerAdvice
 public class CustomExceptionHandler {
   @ExceptionHandler(RestException.class)
   public ResponseEntity<ErrorResponse> handleCustomException(RestException e) {
-    return new ResponseEntity<>(new ErrorResponse(e.getMessage(), e.getErrorCode()), e.getHttpCode());
+    return new ResponseEntity<>(new ErrorResponse(e.getMessage(), e.getErrorCode(), OffsetDateTime.now()), e.getHttpCode());
   }
 }

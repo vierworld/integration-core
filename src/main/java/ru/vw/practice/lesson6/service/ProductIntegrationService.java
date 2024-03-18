@@ -1,10 +1,15 @@
 package ru.vw.practice.lesson6.service;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import ru.vw.practice.lesson6.dto.PaymentRequest;
-import ru.vw.practice.lesson6.dto.Product;
+import ru.vw.practice.lesson6.dto.ProductDto;
 import ru.vw.practice.lesson6.dto.ProductsInfoResponse;
+
 
 @Service
 public class ProductIntegrationService {
@@ -15,11 +20,16 @@ public class ProductIntegrationService {
   }
 
   public ProductsInfoResponse getIntegrationProducts(long userId) {
-    return productRestTemplate.getForObject("/products/user/%s".formatted(userId), ProductsInfoResponse.class);
+    HttpHeaders headers = new HttpHeaders();
+    headers.set("userId", Long.toString(userId));
+    HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
+    ResponseEntity<ProductsInfoResponse> response = productRestTemplate.exchange("/api/v1/products", HttpMethod.GET, requestEntity,
+            ProductsInfoResponse.class);
+    return response.getBody();
   }
 
-  public Product executePayment(PaymentRequest paymentRequest) {
-    return productRestTemplate.postForObject("/products/exec", paymentRequest, Product.class);
+  public ProductDto executePayment(PaymentRequest paymentRequest) {
+    return productRestTemplate.postForObject("/api/v1/payment/exec", paymentRequest, ProductDto.class);
   }
 
 }

@@ -6,26 +6,26 @@ import org.springframework.util.CollectionUtils;
 import java.util.List;
 
 public class ProductsInfoResponse {
-  private List<Product> products;
+  private List<ProductDto> productDtos;
 
   public ProductsInfoResponse() {
   }
 
-  public ProductsInfoResponse(List<Product> products) {
-    this.products = products;
+  public ProductsInfoResponse(List<ProductDto> productDtos) {
+    this.productDtos = productDtos;
   }
 
-  public List<Product> getProducts() {
-    return products;
+  public List<ProductDto> getProducts() {
+    return productDtos;
   }
 
-  public void setProducts(List<Product> products) {
-    this.products = products;
+  public void setProducts(List<ProductDto> productDtos) {
+    this.productDtos = productDtos;
   }
 
   @JsonIgnore
   public boolean isEmpty() {
-    return CollectionUtils.isEmpty(products);
+    return CollectionUtils.isEmpty(productDtos);
   }
 
 }

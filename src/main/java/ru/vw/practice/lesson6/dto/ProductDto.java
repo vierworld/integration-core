@@ -3,20 +3,20 @@ package ru.vw.practice.lesson6.dto;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class Product {
+public class ProductDto {
   private Long productId;
   private Long userId;
   private String billNumber;
   private BigDecimal balance;
   private ProductType productType;
 
-  public Product() {}
+  public ProductDto() {}
 
-  public Product(Long productId,
-                 Long userId,
-                 String billNumber,
-                 BigDecimal balance,
-                 ProductType productType) {
+  public ProductDto(Long productId,
+                    Long userId,
+                    String billNumber,
+                    BigDecimal balance,
+                    ProductType productType) {
     this.productId = productId;
     this.userId = userId;
     this.billNumber = billNumber;
@@ -101,8 +101,8 @@ public class Product {
     }
 
 
-    public Product build() {
-      return new Product(productId,
+    public ProductDto build() {
+      return new ProductDto(productId,
               userId,
               billNumber,
               balance,

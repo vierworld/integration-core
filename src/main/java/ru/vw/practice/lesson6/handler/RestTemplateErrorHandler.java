@@ -13,8 +13,8 @@ import java.io.IOException;
 public class RestTemplateErrorHandler implements ResponseErrorHandler {
   private final ObjectMapper objectMapper;
 
-  public RestTemplateErrorHandler() {
-    objectMapper = new ObjectMapper();
+  public RestTemplateErrorHandler(ObjectMapper objectMapper) {
+    this.objectMapper = objectMapper;
   }
 
   @Override
