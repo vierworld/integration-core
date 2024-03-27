@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.vw.practice.lesson6.dto.ProductsInfoResponse;
+import ru.vw.practice.lesson.dto.ProductsInfoResponse;
 import ru.vw.practice.lesson6.service.ProductIntegrationService;
 
 @RestController

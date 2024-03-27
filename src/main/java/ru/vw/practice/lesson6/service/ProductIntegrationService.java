@@ -6,9 +6,9 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import ru.vw.practice.lesson6.dto.PaymentRequest;
-import ru.vw.practice.lesson6.dto.ProductDto;
-import ru.vw.practice.lesson6.dto.ProductsInfoResponse;
+import ru.vw.practice.lesson.dto.PaymentRequest;
+import ru.vw.practice.lesson.dto.ProductDto;
+import ru.vw.practice.lesson.dto.ProductsInfoResponse;
 
 
 @Service
